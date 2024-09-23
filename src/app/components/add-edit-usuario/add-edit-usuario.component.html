@@ -1,0 +1,33 @@
+<form (ngSubmit)="guardar()" #forma="ngForm">
+    <div class="mb-3">
+      <label for="exampleInputEmail" class="form-label">Email</label>
+      <input
+      [(ngModel)]="unUsuario.email"
+      name="email"
+      type="email" class="form-control" id="email" aria-describedby="emailHelp"
+      required>
+      <div id="emailHelp" class="form-text">Aqui va el Email</div>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="exampleInputNumeroTel" class="form-label">Numero Telefono</label>
+      <input
+      [(ngModel)]="unUsuario.numero_telefono"
+      name="numero_telefono"
+      type="string" class="form-control" id="numero_telefono" required>
+    </div>
+
+
+    <div class="mb-3">
+        <label for="exampleInputMiniBio" class="form-label">Minibiografia</label>
+        <input
+        [(ngModel)]="unUsuario.minibiografia"
+        name="minibiografia"
+        type="string" class="form-control" id="minibiografia" required>
+      </div>
+ 
+    <button
+    [disabled]="!forma.valid"
+    type="submit" class="btn btn-primary">Submit</button>
+  </form>
