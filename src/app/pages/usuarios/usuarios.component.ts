@@ -81,6 +81,10 @@ export class UsuariosComponent {
         }
       );
     }
+    logout():void{
+      localStorage.clear(); // Limpia todo el localStorage
+      alert('Has cerrado sesión exitosamente!');
+    }
 
 
 }

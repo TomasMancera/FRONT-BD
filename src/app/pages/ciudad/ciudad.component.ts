@@ -80,6 +80,10 @@ export class CiudadComponent {
         }
       );
     }
+    logout():void{
+      localStorage.clear(); // Limpia todo el localStorage
+      alert('Has cerrado sesión exitosamente!');
+    }
 
 
 }

@@ -25,6 +25,9 @@ export class LoginComponent {
       const { email, contraseña } = this.loginForm.value;
       this.authService.login({ email, contraseña }).subscribe(
         (response) => {
+          if(!response.token){
+            alert("No existe Usuario")
+          }
           console.log('Login exitoso', response);
           alert("Login Exitoso!!")
           console.log({"usuario": email,
@@ -40,8 +43,10 @@ export class LoginComponent {
         },
         (error) => {
           console.error('Error en el login', error);
+          alert("Credenciales no validas")
         }
       );
     }
   }
 }
+

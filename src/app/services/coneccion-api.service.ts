@@ -17,9 +17,10 @@ export class ConeccionApiService {
   }
 
   getPersonas():any{
+    const headers_object = new HttpHeaders().set('x-token',this.service.getToken())
     let url = `${URL_LOCAL}/personas`;
 
-    return this.http.get(url).pipe(
+    return this.http.get(url,{headers:headers_object}).pipe(
       map((resp:any) => {
         console.log('Datos',resp)
         return resp.data;
@@ -30,10 +31,11 @@ export class ConeccionApiService {
   }
 
   getUnaPersona(unIdPersona:number): any {
+    const headers_object = new HttpHeaders().set('x-token',this.service.getToken())
     let url = `${URL_LOCAL}/personas/${unIdPersona}`;
 
 
-    return this.http.get(url).pipe(
+    return this.http.get(url,{headers:headers_object}).pipe(
       map((resp:any) => {
         console.log('DATOS', resp);
         return resp.data;
@@ -42,6 +44,7 @@ export class ConeccionApiService {
   }
 
   crud_Personas(unaPersona: Persona, unaAccion: string):any {
+    const headers_object = new HttpHeaders().set('x-token',this.service.getToken())
  
     if (unaAccion === 'eliminar') {
       let parametros2 = new HttpParams();
@@ -50,7 +53,7 @@ export class ConeccionApiService {
       let url = `${URL_LOCAL}/personas/${unaPersona.id_persona}`;
 
 
-      return this.http.delete(url).pipe(
+      return this.http.delete(url,{headers:headers_object}).pipe(
         map((data) => {
           return data;
         })
@@ -116,9 +119,10 @@ export class ConeccionApiService {
 
   //Ciudades Crud
   getCiudades():any{
+    const headers_object = new HttpHeaders().set('x-token',this.service.getToken())
     let url = `${URL_LOCAL}/ciudad`;
 
-    return this.http.get(url).pipe(
+    return this.http.get(url,{headers:headers_object}).pipe(
       map((resp:any) => {
         console.log('Datos',resp)
         return resp.data;
@@ -129,10 +133,11 @@ export class ConeccionApiService {
   }
 
   getUnaCiudad(unIdCiudad:number): any {
+    const headers_object = new HttpHeaders().set('x-token',this.service.getToken())
     let url = `${URL_LOCAL}/ciudad/${unIdCiudad}`;
 
 
-    return this.http.get(url).pipe(
+    return this.http.get(url,{headers:headers_object}).pipe(
       map((resp:any) => {
         console.log('DATOS', resp);
         return resp.data;
@@ -141,6 +146,7 @@ export class ConeccionApiService {
   }
 
   crud_ciudades(unaCiudad: Ciudad, unaAccion: string):any {
+    const headers_object = new HttpHeaders().set('x-token',this.service.getToken())
  
     if (unaAccion === 'eliminar') {
       let parametros2 = new HttpParams();
@@ -149,7 +155,7 @@ export class ConeccionApiService {
       let url = `${URL_LOCAL}/ciudad/${unaCiudad.id_ciudad}`;
 
 
-      return this.http.delete(url).pipe(
+      return this.http.delete(url,{headers:headers_object}).pipe(
         map((data) => {
           return data;
         })
@@ -177,7 +183,7 @@ export class ConeccionApiService {
       };
 
 
-      return this.http.post(url, body).pipe(map((data) => data));
+      return this.http.post(url, body,{headers:headers_object}).pipe(map((data) => data));
     }
 
 
@@ -206,7 +212,7 @@ export class ConeccionApiService {
 
 
       //console.log(parametros);
-      return this.http.put(url, body).pipe(map((data) => data));
+      return this.http.put(url, body,{headers:headers_object}).pipe(map((data) => data));
     }
   }
 
@@ -281,6 +287,7 @@ export class ConeccionApiService {
 
 
     if (unaAccion === 'modificar') {
+
      
       //let parametros = new HttpParams();
 
@@ -289,7 +296,7 @@ export class ConeccionApiService {
 
 
       //let url = URL_SERVICIOS_MONGODB + '/heroes';
-
+      
 
       // Begin assigning parameters
       //parametros = parametros.append('nombre',unHeroe.nombre);
@@ -307,7 +314,7 @@ export class ConeccionApiService {
 
 
       //console.log(parametros);
-      return this.http.put(url, body).pipe(map((data) => data));
+      return this.http.put(url, body,{headers:headers_object}).pipe(map((data) => data));
     }
   }
 

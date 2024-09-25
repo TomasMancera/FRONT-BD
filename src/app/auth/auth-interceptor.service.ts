@@ -25,7 +25,7 @@ export class AuthService {
 
 
     }else{
-      return "No existe Token"
+      alert("No existe Token")
 
 
     }
